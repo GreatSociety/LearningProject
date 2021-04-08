@@ -36,7 +36,7 @@ public class FirstPersonController : MonoBehaviour
         CharRot = playerConroller.transform.localRotation;
         CamRot = firstPersonCam.transform.localRotation;
 
-        //HightCheck();
+        HightCheck();
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class FirstPersonController : MonoBehaviour
         MouseInputMove(mouseX, mouseY);
         KeyboardInputMove(horizontal, vertical);
 
-        //HightCheck();
+        HightCheck();
     }
 
     void MouseInputMove(float x, float y)
