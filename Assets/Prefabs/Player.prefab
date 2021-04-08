@@ -55,7 +55,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -205,9 +205,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCam: {fileID: 1102517506179099803}
-  HorizontalSpeed: 1
-  VerticalSpeed: 1
-  MovementSpeed: 3
+  HorizontalSpeed: 1.5
+  VerticalSpeed: 1.5
+  MovementSpeed: 3.5
 --- !u!82 &1102517507876154040
 AudioSource:
   m_ObjectHideFlags: 0
