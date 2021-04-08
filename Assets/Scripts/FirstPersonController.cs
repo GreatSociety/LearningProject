@@ -8,37 +8,61 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] Camera firstPersonCam;
     private CharacterController playerConroller;
 
-    public float HorizontalSpeed = 1f;
-    public float VerticalSpeed = 1f;
-    public float MovementSpeed = 3f;
+    private float HorizontalSpeed = 1.5F;
+    private float VerticalSpeed = 1.5F;
+    private float MovementSpeed = 3.2F;
 
     private Vector3 MoveTo = Vector3.zero;
     private Quaternion CharRot;
     private Quaternion CamRot;
 
+    private float mouseX;
+    private float mouseY;
+
+    private float horizontal;
+    private float vertical;
+
     private float height = 1.8f;
 
     private void Awake()
     {
-        gameObject.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+        
     }
 
     private void Start()
     {
         playerConroller = GetComponent<CharacterController>();
+
         CharRot = playerConroller.transform.localRotation;
         CamRot = firstPersonCam.transform.localRotation;
+
+        //HightCheck();
     }
 
     // Update is called once per frame
     void Update()
     {
         // Mouse imput
-        float mouseX = Input.GetAxis("Mouse Y") * HorizontalSpeed;
-        float mouseY = Input.GetAxis("Mouse X") * VerticalSpeed;
+        mouseX = Input.GetAxis("Mouse Y") * HorizontalSpeed;
+        mouseY = Input.GetAxis("Mouse X") * VerticalSpeed;
 
-        CharRot *= Quaternion.Euler(0f, mouseY, 0f);
-        CamRot *= Quaternion.Euler(-mouseX, 0f, 0f);
+        //Keyboard imput
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");  
+    }
+
+    private void FixedUpdate()
+    {
+        MouseInputMove(mouseX, mouseY);
+        KeyboardInputMove(horizontal, vertical);
+
+        //HightCheck();
+    }
+
+    void MouseInputMove(float x, float y)
+    {
+        CharRot *= Quaternion.Euler(0f, y, 0f);
+        CamRot *= Quaternion.Euler(-x, 0f, 0f);
         CamRot = ClampRotationAroundXAxis(CamRot);
 
         // playerConroller.transform.localRotation = Quaternion.Slerp(playerConroller.transform.localRotation, CharRot, horizontalSpeed * Time.deltaTime);
@@ -47,25 +71,23 @@ public class FirstPersonController : MonoBehaviour
         playerConroller.transform.localRotation = CharRot;
         firstPersonCam.transform.localRotation = CamRot;
 
-        //Keyboard imput
+    }
 
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");  
+    void KeyboardInputMove(float hor, float vert)
+    {
 
-        //Vector2 InputParam = new Vector2(horizontal, vertical);
-        //Vector3 desiredMove = transform.forward * InputParam.y + transform.right * InputParam.x;
-
-        Vector3 desiredMove = transform.forward * vertical + transform.right * horizontal;
+        Vector3 desiredMove = transform.forward * vert + transform.right * hor;
         MoveTo.x = desiredMove.x * MovementSpeed;
         MoveTo.z = desiredMove.z * MovementSpeed;
         MoveTo.y = 0f;
 
         playerConroller.Move(MoveTo * Time.deltaTime);
-
-        //playerConroller.Move((Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime);
-
     }
-
+    void HightCheck()
+    {
+        if (gameObject.transform.position.y != height)
+            gameObject.transform.position = new Vector3(transform.position.x, height, transform.position.z);
+    }
     Quaternion ClampRotationAroundXAxis(Quaternion q)
     {
         q.x /= q.w;
