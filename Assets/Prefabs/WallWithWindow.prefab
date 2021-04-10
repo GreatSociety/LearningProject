@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WindowsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6000454125804205515, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
+      propertyPath: openCloseAnim
+      value: 
+      objectReference: {fileID: 2931959582522525661}
     - target: {fileID: 9148187652786746771, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -343,5 +347,10 @@ PrefabInstance:
 --- !u!4 &1069798901715883337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9148187652786746771, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
+  m_PrefabInstance: {fileID: 8082928192502309082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2931959582522525661 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6385046444505163527, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
   m_PrefabInstance: {fileID: 8082928192502309082}
   m_PrefabAsset: {fileID: 0}
