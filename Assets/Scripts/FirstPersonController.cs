@@ -6,6 +6,7 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour
 {
     [SerializeField] Camera firstPersonCam;
+
     private CharacterController playerConroller;
 
     private float HorizontalSpeed = 1.5F;
@@ -24,10 +25,6 @@ public class FirstPersonController : MonoBehaviour
 
     private float height = 1.8f;
 
-    private void Awake()
-    {
-        
-    }
 
     private void Start()
     {
@@ -37,9 +34,9 @@ public class FirstPersonController : MonoBehaviour
         CamRot = firstPersonCam.transform.localRotation;
 
         HightCheck();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Mouse imput
@@ -48,7 +45,9 @@ public class FirstPersonController : MonoBehaviour
 
         //Keyboard imput
         horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");  
+        vertical = Input.GetAxis("Vertical");
+
+        
     }
 
     private void FixedUpdate()
@@ -83,11 +82,13 @@ public class FirstPersonController : MonoBehaviour
 
         playerConroller.Move(MoveTo * Time.deltaTime);
     }
+
     void HightCheck()
     {
         if (gameObject.transform.position.y != height)
             gameObject.transform.position = new Vector3(transform.position.x, height, transform.position.z);
     }
+
     Quaternion ClampRotationAroundXAxis(Quaternion q)
     {
         q.x /= q.w;
@@ -103,6 +104,8 @@ public class FirstPersonController : MonoBehaviour
 
         return q;
     }
+
+ 
 }
 
 
