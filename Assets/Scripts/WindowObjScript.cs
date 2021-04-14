@@ -5,6 +5,9 @@ using UnityEngine;
 public class WindowObjScript : MonoBehaviour
 {
     [SerializeField] public Animator openCloseAnim;
+    [SerializeField] BreakableWindow leftframe;
+    [SerializeField] BreakableWindow rightframe;
+
 
     private string parameter = "IsOpening";
     private bool state = false;
@@ -22,6 +25,12 @@ public class WindowObjScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             AnimConroller();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            leftframe.breakWindow();
+            rightframe.breakWindow();
         }
             
         
