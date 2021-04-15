@@ -92,6 +92,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4446906571753930080}
   - component: {fileID: 4566912147769620060}
+  - component: {fileID: 581943125}
+  - component: {fileID: 2073212656751346594}
   m_Layer: 0
   m_Name: TV
   m_TagString: Untagged
@@ -139,6 +141,32 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4461121546514496648}
   m_Enabled: 1
+--- !u!114 &581943125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448199135314765740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52be9b7f934ffec40bed9fa9db8ef82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvScreen: {fileID: 4447480598578158773}
+--- !u!65 &2073212656751346594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448199135314765740}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.6686559, z: 0.89715505}
+  m_Center: {x: -0.00000018319558, y: 0.2762637, z: -0.079551235}
 --- !u!1 &4448199135331352022
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4446906570865737994}
     m_Modifications:
+    - target: {fileID: 2103821088, guid: 83ea00e697130b94094c2dd9961d6bac, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3186741082940560505, guid: 83ea00e697130b94094c2dd9961d6bac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -280,6 +312,11 @@ PrefabInstance:
 --- !u!4 &1261346731623468012 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3186741082940560505, guid: 83ea00e697130b94094c2dd9961d6bac, type: 3}
+  m_PrefabInstance: {fileID: 4447480597288624021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &4447480598578158773 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 2103821088, guid: 83ea00e697130b94094c2dd9961d6bac, type: 3}
   m_PrefabInstance: {fileID: 4447480597288624021}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &9065092750615244986 stripped

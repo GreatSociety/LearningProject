@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindowObjScript : MonoBehaviour
+public class WindowObjScript : MonoBehaviour, ObjectInterface
 {
     [SerializeField] public Animator openCloseAnim;
     [SerializeField] BreakableWindow leftframe;
@@ -22,7 +22,20 @@ public class WindowObjScript : MonoBehaviour
     void FixedUpdate()
     {
         // We Should write some interface
-        if (Input.GetKeyDown(KeyCode.E))
+        
+            
+        
+    }
+    private void AnimConroller()
+    {
+        state = !state;
+
+        openCloseAnim.SetBool(parameter, state);
+    }
+
+    public void Interactive(bool on)
+    {
+        if (on)
         {
             AnimConroller();
         }
@@ -32,13 +45,5 @@ public class WindowObjScript : MonoBehaviour
             leftframe.breakWindow();
             rightframe.breakWindow();
         }
-            
-        
-    }
-    private void AnimConroller()
-    {
-        state = !state;
-
-        openCloseAnim.SetBool(parameter, state);
     }
 }

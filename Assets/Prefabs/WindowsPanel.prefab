@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 9148187652786746771}
   - component: {fileID: 6385046444505163527}
   - component: {fileID: 7316824763988566801}
+  - component: {fileID: 5058819868519992312}
   m_Layer: 0
   m_Name: WindowsPanel
   m_TagString: Untagged
@@ -358,6 +359,19 @@ MonoBehaviour:
   openCloseAnim: {fileID: 6385046444505163527}
   leftframe: {fileID: 6072633679422754168}
   rightframe: {fileID: 38036270219471344}
+--- !u!65 &5058819868519992312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5676550718389475759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.86206627, y: 2.362163, z: 4.2433434}
+  m_Center: {x: 0.068966866, y: -0.13915706, z: 0.055994034}
 --- !u!1 &5970352773223370723
 GameObject:
   m_ObjectHideFlags: 0

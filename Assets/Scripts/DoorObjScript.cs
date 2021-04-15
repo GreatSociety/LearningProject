@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorObjScript : MonoBehaviour
+public class DoorObjScript : MonoBehaviour, ObjectInterface 
 {
     [SerializeField] public Animator doorAnim;
 
@@ -15,14 +15,6 @@ public class DoorObjScript : MonoBehaviour
 
     private string tryParam = "Trying";
 
-    private void Update()
-    {
-        // We Should write some interface
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            OpenDoor();
-        }
-    }
 
     private void OpenDoor()
     {
@@ -42,7 +34,11 @@ public class DoorObjScript : MonoBehaviour
         doorAnim.SetBool(tryParam, true);
     }
 
-  
-
-
+    public void Interactive(bool on)
+    {
+        if (on)
+        {   
+            OpenDoor();
+        }
+    }
 }

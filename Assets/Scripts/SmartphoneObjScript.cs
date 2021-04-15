@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmartphoneObjScript : MonoBehaviour
+public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
 {
+    // Надо как-то убрать эту зависимость. Пока не знаю как
     [SerializeField] GameObject Player;
 
     public bool onHand = false;
@@ -18,16 +19,6 @@ public class SmartphoneObjScript : MonoBehaviour
     {
         startPos = transform.position;
         startRot = transform.rotation;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            onHand = !onHand;
-
-            Handler(onHand);
-        }
     }
 
     private void Handler(bool onHand)
@@ -53,4 +44,10 @@ public class SmartphoneObjScript : MonoBehaviour
         transform.rotation = startRot;
     }
 
+    public void Interactive(bool on)
+    {
+        onHand = !onHand;
+
+        Handler(onHand);
+    }
 }

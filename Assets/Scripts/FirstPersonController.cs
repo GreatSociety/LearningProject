@@ -25,6 +25,9 @@ public class FirstPersonController : MonoBehaviour
 
     private float height = 1.8f;
 
+    private Vector3 rayInterface;
+    private float radiusInterface;
+
 
     private void Start()
     {
@@ -34,6 +37,8 @@ public class FirstPersonController : MonoBehaviour
         CamRot = firstPersonCam.transform.localRotation;
 
         HightCheck();
+
+        InputManager.KeyDownE += PlayerInterface;
 
     }
 
@@ -56,6 +61,7 @@ public class FirstPersonController : MonoBehaviour
         KeyboardInputMove(horizontal, vertical);
 
         HightCheck();
+
     }
 
     void MouseInputMove(float x, float y)
@@ -105,7 +111,36 @@ public class FirstPersonController : MonoBehaviour
         return q;
     }
 
- 
+    public void PlayerInterface(bool on)
+    {
+        print("in");
+
+        rayInterface = transform.position + playerConroller.center;
+        radiusInterface = height/2;
+
+        if (Physics.Raycast(rayInterface, transform.forward, out RaycastHit hit, 3) //Physics.SphereCast(rayInterface, radiusInterface, transform.forward, out RaycastHit hit, 2) 
+            && hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
+        {
+            print("Yes");
+            objectInterface.Interactive(on);
+        }
+
+    }
+
+    /*void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
+        {
+            objectInterface.Interactive();
+            print("lol");
+        }
+    }*/
+
+
+
+    //ControllerColliderHit
+
+
 }
 
 
