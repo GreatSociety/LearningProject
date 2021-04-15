@@ -15,7 +15,7 @@ public class LightTime : MonoBehaviour
 
     int horizontalPosition = 70;
 
-    void Start()
+    private void Awake()
     {
         Sun = GetComponent<Light>();
         Clock.LightTime += XRotate;
@@ -28,17 +28,23 @@ public class LightTime : MonoBehaviour
         if (hour > dayBorderMax)
         {
             rTime = hour - dayBorderMax;
+            print(0);
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime* nightRotStep, horizontalPosition, 0);
+            print(rTime);
         }
         else if(hour < dayBorderMin)
         {
             rTime = 24 - (dayBorderMax - hour);
+            print(1);
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
+            print(rTime);
         }
         else
         {
+            print(2);
             rTime = hour - dayBorderMin;
             gameObject.transform.rotation = Quaternion.Euler(rTime * dayRotStep, horizontalPosition, 0);
+            print(rTime);
         }
 
         MaskChanger(hour);
