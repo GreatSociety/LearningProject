@@ -181,7 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minutes: 0
   hour: 0
-  clockSpeed: 1
+  clockSpeed: 12
+  pointerMinutes: {fileID: 100012}
+  pointerHours: {fileID: 100008}
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

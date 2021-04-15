@@ -290,6 +290,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4934115131309041304}
     m_Modifications:
+    - target: {fileID: 4671309217517786720, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5676550718389475759, guid: 14febeed688659d42bb0addfd8c2a19f, type: 3}
       propertyPath: m_Name
       value: WindowsPanel
