@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
 {
-    // Надо как-то убрать эту зависимость. Пока не знаю как
-    [SerializeField] GameObject Player;
+    Transform Player;
+    [SerializeField] SmartphoneButtonController PanelController;
 
     public bool onHand = false;
 
@@ -32,7 +32,7 @@ public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
 
     private void Take()
     {
-        transform.SetParent(Player.transform);
+        transform.SetParent(Player);
         transform.localPosition = offsetPos;
         transform.localRotation = offsetRot;
 
@@ -44,10 +44,19 @@ public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
         transform.rotation = startRot;
     }
 
-    public void Interactive(bool on)
+    public void Interactive(KeyCode key, Transform player)
     {
-        onHand = !onHand;
 
-        Handler(onHand);
+        Player = player;
+
+        if(key == KeyCode.E)
+            onHand = !onHand;
+            Handler(onHand);
+
+        if (onHand && key == KeyCode.Q)
+            PanelController.Unlock();
+
+        if (!onHand && key == KeyCode.E)
+            PanelController.ToWorkPanel();
     }
 }

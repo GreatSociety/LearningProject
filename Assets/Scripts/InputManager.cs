@@ -5,25 +5,37 @@ using System;
 
 public class InputManager : MonoBehaviour
 {
-    public static event Action<bool> KeyDownE;
-    public static event Action<bool> KeyDownQ;
+    public static event Action<KeyCode> KeyDown;
 
     private KeyCode E = KeyCode.E;
     private KeyCode Q = KeyCode.Q;
 
+    bool enabledMode = true;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(E))
-            Call(KeyDownE);
-        else if (Input.GetKeyDown(Q))
-            Call(KeyDownQ);
-
+        InputRead(enabledMode);
     }
 
-    void Call(Action<bool> thisEvent)
+    void Call(Action<KeyCode> thisEvent, KeyCode thisKey)
     {
-        thisEvent?.Invoke(true);
-        print("Call");
+        thisEvent?.Invoke(thisKey);
+    }
+
+    void InputRead(bool mode)
+    {
+        if (!mode)
+            return;
+
+        if (Input.GetKeyDown(E))
+            Call(KeyDown, E);
+        else if (Input.GetKeyDown(Q))
+            Call(KeyDown, Q);
+    }
+
+    public void InputModeChange()
+    {
+        enabledMode = !enabledMode; 
     }
 }

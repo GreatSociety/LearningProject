@@ -33,14 +33,14 @@ public class WindowObjScript : MonoBehaviour, ObjectInterface
         openCloseAnim.SetBool(parameter, state);
     }
 
-    public void Interactive(bool on)
+    public void Interactive(KeyCode key, Transform player)
     {
-        if (on)
+        if (key == KeyCode.E)
         {
             AnimConroller();
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (key == KeyCode.Q)
         {
             leftframe.breakWindow();
             rightframe.breakWindow();
