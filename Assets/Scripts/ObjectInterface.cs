@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ObjectInterface 
 {
-    void Interactive(bool on);
+    void Interactive(KeyCode key, Transform player);
 }

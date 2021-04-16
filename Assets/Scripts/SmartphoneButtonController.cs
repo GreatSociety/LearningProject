@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class SmartphoneButtonController : MonoBehaviour
 {
 
-    [SerializeField] public SmartphoneObjScript inHandflag;
     [SerializeField] public GameObject WorkPanel;
     [SerializeField] public GameObject EditorPanel;
 
@@ -16,18 +15,10 @@ public class SmartphoneButtonController : MonoBehaviour
         ButtonDoubleClick.ToEditor += ToEditorPanel;
     }
 
-    void FixedUpdate()
+    public void Unlock()
     {
-        if(inHandflag.onHand)
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                WorkPanel.SetActive(true);
-            }
-
-        if(!inHandflag.onHand)
-            ToWorkPanel();
-        
-    }
+        WorkPanel.SetActive(true);
+    } 
 
     public void ToWorkPanel()
     {
