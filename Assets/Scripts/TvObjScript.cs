@@ -7,9 +7,9 @@ public class TvObjScript : MonoBehaviour, ObjectInterface
 {
     [SerializeField] private VideoPlayer tvScreen;
 
-    public void Interactive(bool on)
+    public void Interactive(KeyCode key, Transform player)
     {
-        if (on)
+        if (key == KeyCode.E)
         {
             tvScreen.enabled = !tvScreen.enabled;
         }

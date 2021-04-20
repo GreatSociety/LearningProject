@@ -34,9 +34,9 @@ public class DoorObjScript : MonoBehaviour, ObjectInterface
         doorAnim.SetBool(tryParam, true);
     }
 
-    public void Interactive(bool on)
+    public void Interactive(KeyCode key, Transform player)
     {
-        if (on)
+        if (key == KeyCode.E)
         {   
             OpenDoor();
         }

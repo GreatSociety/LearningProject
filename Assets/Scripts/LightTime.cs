@@ -28,20 +28,17 @@ public class LightTime : MonoBehaviour
         if (hour > dayBorderMax)
         {
             rTime = hour - dayBorderMax;
-            print(0);
-            gameObject.transform.rotation = Quaternion.Euler(180 + rTime* nightRotStep, horizontalPosition, 0);
+            gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
             print(rTime);
         }
         else if(hour < dayBorderMin)
         {
             rTime = 24 - (dayBorderMax - hour);
-            print(1);
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
             print(rTime);
         }
         else
         {
-            print(2);
             rTime = hour - dayBorderMin;
             gameObject.transform.rotation = Quaternion.Euler(rTime * dayRotStep, horizontalPosition, 0);
             print(rTime);
@@ -54,13 +51,11 @@ public class LightTime : MonoBehaviour
     void MaskChanger(int hour)
     {
         if (hour > dayBorderMax || hour < dayBorderMin)
-        {
             // Off
-            Sun.cullingMask &= ~(1 << LayerMask.NameToLayer("Default"));
-        }
+            HideMask();
         else
             // On
-            Sun.cullingMask |= 1 << LayerMask.NameToLayer("Default");
+            ShowMask();
     }
 
     void HideMask()

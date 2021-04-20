@@ -26,7 +26,6 @@ public class FirstPersonController : MonoBehaviour
     private float height = 1.8f;
 
     private Vector3 rayInterface;
-    private float radiusInterface;
 
 
     private void Start()
@@ -38,7 +37,7 @@ public class FirstPersonController : MonoBehaviour
 
         HightCheck();
 
-        InputManager.KeyDownE += PlayerInterface;
+        InputManager.KeyDown += PlayerInterface;
 
     }
 
@@ -52,7 +51,6 @@ public class FirstPersonController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        
     }
 
     private void FixedUpdate()
@@ -111,18 +109,15 @@ public class FirstPersonController : MonoBehaviour
         return q;
     }
 
-    public void PlayerInterface(bool on)
+    public void PlayerInterface(KeyCode key)
     {
-        print("in");
-
         rayInterface = transform.position + playerConroller.center;
-        radiusInterface = height/2;
 
-        if (Physics.Raycast(rayInterface, transform.forward, out RaycastHit hit, 3) //Physics.SphereCast(rayInterface, radiusInterface, transform.forward, out RaycastHit hit, 2) 
+        if (Physics.Raycast(rayInterface, transform.forward, out RaycastHit hit, 3)
             && hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
         {
             print("Yes");
-            objectInterface.Interactive(on);
+            objectInterface.Interactive(key, transform);
         }
 
     }
