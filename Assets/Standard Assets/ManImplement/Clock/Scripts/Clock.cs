@@ -21,8 +21,8 @@ public class Clock : MonoBehaviour {
 
     // Events 
 
-    public static Action<StringBuilder> TextTime;
-    public static Action<int> LightTime;
+    public static event Action<StringBuilder> TextTime;
+    public static event Action<int> LightTime;
 
     //-- time speed factor
     public float clockSpeed = 12.0f;     // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
@@ -98,8 +98,9 @@ void Update()
 void PhoneTime()
 {
         ToPhone.Clear();
-
         ToPhone.Append(minutes > 9 ? $"{hour}:{minutes}" : $"{hour}:0{minutes}");
+
+        TextTime?.Invoke(ToPhone);
 }
 
 //-----------------------------------------------------------------------------------------------------------------------------------------

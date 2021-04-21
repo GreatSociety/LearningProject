@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 5091111649274171764}
   - component: {fileID: 3457971386268139139}
   - component: {fileID: 7293933078440554527}
+  - component: {fileID: 4805382779559241591}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -411,6 +412,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4805382779559241591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2677269597053668591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:330ef5cc2b6d6c24ab67723b957d31c9
+    m_TableEntryReference:
+      m_KeyId: 23659483992064
+      m_Key: 
+    m_FallbackState: 0
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7293933078440554527}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &3298244027958715766
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +591,7 @@ GameObject:
   - component: {fileID: 3466177982984698024}
   - component: {fileID: 3375425937432312433}
   - component: {fileID: 8936832143082104364}
+  - component: {fileID: 8181024991197062491}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -678,6 +715,41 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8181024991197062491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3479696221031730692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:330ef5cc2b6d6c24ab67723b957d31c9
+    m_TableEntryReference:
+      m_KeyId: 23547579961344
+      m_Key: 
+    m_FallbackState: 0
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8936832143082104364}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &3820534504096955734
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +879,7 @@ MonoBehaviour:
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
-  m_LineType: 0
+  m_LineType: 1
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
@@ -1152,6 +1224,7 @@ GameObject:
   - component: {fileID: 1527569844241384289}
   - component: {fileID: 847028817111307851}
   - component: {fileID: 7739036879318401166}
+  - component: {fileID: 121981889995095921}
   m_Layer: 0
   m_Name: smartphone 1
   m_TagString: Untagged
@@ -1265,6 +1338,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16935101, y: 0.10774674, z: 0.06356301}
   m_Center: {x: -0.05139016, y: 0.01061812, z: -0.030071104}
+--- !u!114 &121981889995095921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812785569008078899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cacbce82e57723341bc2a01967d28b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimePlace: {fileID: 1949499584356772428}
 --- !u!1 &7151560103390406981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,7 +1561,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 4
   m_linkedTextComponent: {fileID: 0}

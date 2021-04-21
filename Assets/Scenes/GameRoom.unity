@@ -237,11 +237,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147cf7a34740b3d46b57a63719700691, type: 3}
---- !u!1 &485975031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1102517507876154033, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
+--- !u!114 &485975033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6016379989798145506, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
   m_PrefabInstance: {fileID: 695423556}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f360b0c0b5f851041be52869e85f37da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581603754
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +470,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 32318172832536138, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
 --- !u!1001 &826860367
 PrefabInstance:
@@ -620,6 +627,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a8cef885c568eda4c90f1c882eb97f82, type: 2}
+    - target: {fileID: 5243392083149438724, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
+      propertyPath: hideSplintersInHierarchy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7192238570229349031, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -677,6 +688,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7153176908620916447, guid: f96858f0411ed1c4b87731a74dfeb131, type: 3}
+      propertyPath: m_Volume
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: -4449312070015952055, guid: f96858f0411ed1c4b87731a74dfeb131, type: 3}
+      propertyPath: doorOpen
+      value: 
+      objectReference: {fileID: 8300000, guid: bb2b665ccae5df24da740173552ac312, type: 3}
+    - target: {fileID: -4449312070015952055, guid: f96858f0411ed1c4b87731a74dfeb131, type: 3}
+      propertyPath: doorClose
+      value: 
+      objectReference: {fileID: 8300000, guid: bf01b4996f93a1c4b8f127cb3a784b83, type: 3}
+    - target: {fileID: -4449312070015952055, guid: f96858f0411ed1c4b87731a74dfeb131, type: 3}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: 3192736e05f39c243ac926c4b4440e45, type: 3}
     - target: {fileID: 2509462088011215810, guid: f96858f0411ed1c4b87731a74dfeb131, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.74
@@ -750,10 +777,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1314200794}
-    - target: {fileID: 847028817111307851, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
-      propertyPath: Player
+    - target: {fileID: 3593804401652035479, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 485975031}
+      objectReference: {fileID: 485975033}
+    - target: {fileID: 3593804401652035479, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
+      propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 485975033}
     - target: {fileID: 6812785569008078899, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
       propertyPath: m_Name
       value: smartphone 1
