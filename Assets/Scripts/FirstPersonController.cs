@@ -116,10 +116,8 @@ public class FirstPersonController : MonoBehaviour
         if (Physics.Raycast(rayInterface, transform.forward, out RaycastHit hit, 3)
             && hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
         {
-            print("Yes");
             objectInterface.Interactive(key, transform);
         }
-
     }
 
     /*void OnControllerColliderHit(ControllerColliderHit hit)

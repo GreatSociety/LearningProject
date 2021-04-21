@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameLocalization_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 330ef5cc2b6d6c24ab67723b957d31c9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 492803690496
+    m_Localized: ROOM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1888676450304
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2065499918336
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2183057870848
+    m_Localized: "\u0421oop"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2264930684928
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2485962117120
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2539175251968
+    m_Localized: Reset Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15670953873408
+    m_Localized: Return to menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17451456892928
+    m_Localized: Background music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17454980108288
+    m_Localized: Sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23547579961344
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23659483992064
+    m_Localized: Press Q to Unlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69601188876288
+    m_Localized: Global Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23896038543360
+    m_Localized: E - Interaction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23943845220352
+    m_Localized: Q - Additional action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95996258521088
+    m_Localized: Game Menu
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

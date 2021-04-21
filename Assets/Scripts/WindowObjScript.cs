@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WindowObjScript : MonoBehaviour, ObjectInterface
 {
@@ -12,19 +13,13 @@ public class WindowObjScript : MonoBehaviour, ObjectInterface
     private string parameter = "IsOpening";
     private bool state = false;
 
+    public bool isBreak;
+    public event Action Breaking;
+
     // Start is called before the first frame update
     void Start()
     {
         openCloseAnim.SetBool(parameter, state);
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        // We Should write some interface
-        
-            
-        
     }
     private void AnimConroller()
     {
@@ -42,8 +37,15 @@ public class WindowObjScript : MonoBehaviour, ObjectInterface
 
         if (key == KeyCode.Q)
         {
+            if (isBreak)
+                return;            
+
             leftframe.breakWindow();
             rightframe.breakWindow();
+
+            isBreak = true;
+            Breaking.Invoke();
+
         }
     }
 }

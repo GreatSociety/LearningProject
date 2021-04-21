@@ -36,6 +36,7 @@ public class InputManager : MonoBehaviour
 
     public void InputModeChange()
     {
-        enabledMode = !enabledMode; 
+        enabledMode = !enabledMode;
     }
+
 }
