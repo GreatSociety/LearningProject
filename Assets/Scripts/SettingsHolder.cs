@@ -8,6 +8,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
+using UnityEngine.Localization.Settings;
 
 public class SettingsHolder : MonoBehaviour, ISave
 {
@@ -23,6 +24,8 @@ public class SettingsHolder : MonoBehaviour, ISave
     public static event Action<float> ChangeB;
     public static event Action<float> ChangeS;
 
+    public static event Action ToSet;
+
 
     void Awake()
     {
@@ -31,11 +34,17 @@ public class SettingsHolder : MonoBehaviour, ISave
     }
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         audioListerSet.onValueChanged.AddListener(ChangeListn);
         audioBackSet.onValueChanged.AddListener(ChangeBack);
         audioSoundSet.onValueChanged.AddListener(ChangeSound);
+
+        yield return LocalizationSettings.InitializationOperation;
+
+        // Call earler than LocalizationInit:
+        // Two way to fix : GameManager Ienum or different method for set;
+        ToSet?.Invoke();
     }
 
     private void OnDisable()
@@ -89,8 +98,6 @@ public class SettingsHolder : MonoBehaviour, ISave
         audioBackSet.value = (float)obj["AudioBackVolume"];
         audioSoundSet.value = (float)obj["AudioSoundVolume"];
     }
-
-    
 
 
 }

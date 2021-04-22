@@ -1,11 +1,7 @@
 using System.Collections;
 using System.IO;
 using System;
-using System.Text;
-using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
 using UnityEngine.Localization.Settings;
 
@@ -19,6 +15,8 @@ public class SaveManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         jsonSetting = Path.Combine(Application.persistentDataPath, "Settings.json");
+
+        SettingsHolder.ToSet += LoadSetting;
     }
 
     IEnumerator Start()

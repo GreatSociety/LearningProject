@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 public class AudioManager : MonoBehaviour
 {
     /// <summary>
-    /// Это дикий код написанный с бадуна.
+    /// hangover engineering, sorry
     /// </summary>
     float audioListerVolume = 1f;
     float audioBackVolume = 1f;
@@ -59,11 +59,5 @@ public class AudioManager : MonoBehaviour
     public void GetSoundVolume()
         => VolumeChangeS?.Invoke(audioSoundVolume);
 
-    public void Set(JObject obj)
-    {
-        audioListerVolume =(float)obj["AudioListerVolume"]);
-        audioBackVolume = (float)obj["AudioBackVolume"];
-        audioSoundVolume = (float)obj["AudioSoundVolume"]); 
-    }
 }
 
