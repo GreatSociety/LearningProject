@@ -1,48 +1,41 @@
 using System.Collections;
 using System.IO;
+using System;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
+using UnityEngine.Localization.Settings;
 
-public class SaveManager : MonoBehaviour, ILoad, ISave
+public class SaveManager : MonoBehaviour
 {
-
     string jsonSetting;
-    string jsonGameProgress;
 
-    public string Load()
+    public static event Action<JObject> SettingLoad;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        jsonSetting = Path.Combine(Application.persistentDataPath, "Settings.json");
+    }
+
+    IEnumerator Start()
+    {
+        // Wait for the localization system to initialize, loading Locales, preloading etc.
+        yield return LocalizationSettings.InitializationOperation;
+
+        LoadSetting();
+    }
+
+    public void LoadSetting()
     {
         if (!File.Exists(jsonSetting))
-            File.Open(jsonSetting, FileMode.OpenOrCreate);
+            return;
 
-        using (var fs = File.OpenText(jsonSetting))
-        {
-            var o = (new JsonTextReader(fs));
-            return o.ToString();
-        }
+        JObject parsFile = JObject.Parse(File.ReadAllText(jsonSetting));
+        SettingLoad?.Invoke(parsFile);
     }
 
-    public void Save()
-    {
-        using (var fs = File.Open(jsonSetting, FileMode.OpenOrCreate))
-        {
-            
-        }
-    }
-
-    void Awake()
-    {
-        jsonSetting = Path.Combine(Application.persistentDataPath, "Settings.json");
-        jsonGameProgress = Path.Combine(Application.persistentDataPath, "GameProgress.json");
-
-        Load();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

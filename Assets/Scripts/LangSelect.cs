@@ -9,8 +9,6 @@ public class LangSelect : MonoBehaviour
 {
     public Dropdown dropdown;
 
-    public static int lang;
-
     IEnumerator Start()
     {
         // Wait for the localization system to initialize, loading Locales, preloading etc.
@@ -18,16 +16,18 @@ public class LangSelect : MonoBehaviour
 
         // Generate list of available Locales
         var options = new List<Dropdown.OptionData>();
-        int selected = lang !=0 ? lang : 0;
+        int selected = 0;
+
         for (int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; ++i)
         {
             var locale = LocalizationSettings.AvailableLocales.Locales[i];
+            print(i);
             if (LocalizationSettings.SelectedLocale == locale)
                 selected = i;
             options.Add(new Dropdown.OptionData(locale.name));
         }
-        dropdown.options = options;
 
+        dropdown.options = options;
         dropdown.value = selected;
         dropdown.onValueChanged.AddListener(LocaleSelected);
     }
@@ -35,7 +35,8 @@ public class LangSelect : MonoBehaviour
     static void LocaleSelected(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
-        lang = index;
     }
+
+    
 
 }

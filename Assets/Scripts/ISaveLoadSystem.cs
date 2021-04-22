@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json.Linq;
 
 public interface ISave 
 {
@@ -10,15 +11,5 @@ public interface ISave
 
 public interface ILoad
 {
-    string Load();
-}
-
-public interface IWrite
-{
-    void Write();
-}
-
-public interface IRead
-{
-    void Read();
+    void Load();
 }
