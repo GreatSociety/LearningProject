@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     private KeyCode E = KeyCode.E;
     private KeyCode Q = KeyCode.Q;
+    private KeyCode Esc = KeyCode.Escape;
 
     bool enabledMode = true;
 
@@ -32,6 +33,10 @@ public class InputManager : MonoBehaviour
             Call(KeyDown, E);
         else if (Input.GetKeyDown(Q))
             Call(KeyDown, Q);
+        else if (Input.GetKeyDown(Esc))
+        {
+            Call(KeyDown, Esc);
+        }
     }
 
     public void InputModeChange()
