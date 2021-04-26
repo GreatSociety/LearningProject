@@ -15,18 +15,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         gameManager = this;
-
-        if (playerPrefab == null)
-        {
-            Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
-        }
-        else
-        {
-            print("ye");
-            // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
-            DontDestroyOnLoad(PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 1.8f, 32f), Quaternion.identity, 0));
-            DontDestroyOnLoad(this.gameObject);
-        }
     }
 
     /// <summary>
@@ -45,9 +33,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
             LoadArena();
         }
+
+        DontDestroyOnLoad(PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 1.8f, 32f), Quaternion.identity, 0));
     }
 
     public override void OnPlayerLeftRoom(Player other)
