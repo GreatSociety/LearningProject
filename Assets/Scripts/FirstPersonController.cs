@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviourPunCallbacks
+public class FirstPersonController : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] Camera firstPersonCam;
 
