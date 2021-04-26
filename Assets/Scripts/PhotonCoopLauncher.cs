@@ -8,9 +8,7 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
 {
     bool isConnecting;
     RoomOptions roomOptions;
-    string gameVersion;
 
-    AuthenticationValues userId;
 
     [SerializeField] string roomName;
     [SerializeField] int maxPlayers;
@@ -25,41 +23,20 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
         roomOptions.IsOpen = true;
         roomOptions.PublishUserId = true;
 
-        AuthenticationValues userId = new AuthenticationValues();
-        userId.UserId = "Abobus";
     }
 
     public void Connect()
     {
         if (PhotonNetwork.IsConnected)
         {
-            // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
             PhotonNetwork.CreateRoom("Room", roomOptions, TypedLobby.Default);
         }
         else
         {
-            // #Critical, we must first and foremost connect to Photon Online Server.
-            // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
             isConnecting = PhotonNetwork.ConnectUsingSettings();
-            PhotonNetwork.GameVersion = gameVersion;
         }
     }
 
-    public void Joint()
-    {
-        if (PhotonNetwork.IsConnected)
-        {
-            // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
-            PhotonNetwork.JoinRoom("Room");
-        }
-        else
-        {
-            // #Critical, we must first and foremost connect to Photon Online Server.
-            // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
-            isConnecting = PhotonNetwork.ConnectUsingSettings();
-            //PhotonNetwork.GameVersion = gameVersion;
-        }
-    }
 
     public override void OnConnectedToMaster()
     {
@@ -79,10 +56,6 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom("Room");
     }
 
-    public override void OnJoinedLobby()
-    {
-        PhotonNetwork.JoinRoom("Room");
-    }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -97,6 +70,7 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
-        PhotonNetwork.LoadLevel("GameRoom");
+        Debug.Log("OnCreatedRoom() called by PUN. Now this client is in a room.");
+        //PhotonNetwork.LoadLevel("GameRoom");
     }
 }
