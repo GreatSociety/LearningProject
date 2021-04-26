@@ -8,6 +8,13 @@ using Photon.Realtime;
 public class GameManager : MonoBehaviourPunCallbacks
 {
 
+    public static GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = this;
+    }
+
     /// <summary>
     /// Called when the local player left the room. We need to load the launcher scene.
     /// </summary>
