@@ -9,6 +9,8 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
     bool isConnecting;
     RoomOptions roomOptions;
 
+    AuthenticationValues userId;
+
     [SerializeField] string roomName;
     [SerializeField] int maxPlayers;
 
@@ -19,6 +21,10 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
         roomOptions = new RoomOptions();
         roomOptions.IsVisible = false;
         roomOptions.MaxPlayers = 2;
+        roomOptions.IsOpen = true;
+
+        AuthenticationValues userId = new AuthenticationValues();
+        userId.UserId = "Eblan";
     }
 
     public void Connect()
@@ -39,17 +45,36 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
 
     public void Joint()
     {
-        PhotonNetwork.JoinRoom("Room");
+        if (PhotonNetwork.IsConnected)
+        {
+            // #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
+            PhotonNetwork.JoinRoom("Room");
+        }
+        else
+        {
+            // #Critical, we must first and foremost connect to Photon Online Server.
+            // keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
+            isConnecting = PhotonNetwork.ConnectUsingSettings();
+            //PhotonNetwork.GameVersion = gameVersion;
+        }
     }
 
     public override void OnConnectedToMaster()
     {
         if (isConnecting)
         {
+            print("We here");
+
             // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
             PhotonNetwork.CreateRoom("Room", roomOptions, TypedLobby.Default);
             isConnecting = false;
         }
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.LogWarningFormat("HEre"+ message);
+        PhotonNetwork.JoinRoom("Room");
     }
 
     public override void OnJoinedLobby()
