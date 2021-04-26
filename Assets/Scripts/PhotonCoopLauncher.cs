@@ -44,16 +44,17 @@ public class PhotonCoopLauncher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        if (isConnecting && PhotonNetwork.IsMasterClient)
+        if (isConnecting)
         {
             // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
             PhotonNetwork.CreateRoom("Room", roomOptions, TypedLobby.Default);
             isConnecting = false;
         }
-        else if (isConnecting)
-        {
-            PhotonNetwork.JoinRoom("Room");
-        }
+    }
+
+    public override void OnJoinedLobby()
+    {
+        PhotonNetwork.JoinRoom("Room");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
