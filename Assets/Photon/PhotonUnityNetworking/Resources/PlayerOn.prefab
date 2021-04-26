@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: -5830476828569139086}
   - component: {fileID: 4777790555469875669}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerOn
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,8 +372,9 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: -5830476828569139086}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

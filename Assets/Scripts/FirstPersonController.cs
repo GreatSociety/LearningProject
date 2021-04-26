@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonController : MonoBehaviourPunCallbacks
 {
     [SerializeField] Camera firstPersonCam;
 
@@ -40,6 +41,24 @@ public class FirstPersonController : MonoBehaviour
         InputManager.KeyDown += PlayerInterface;
 
     }
+
+
+    #region IPunObservable implementation
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(gameObject.transform);
+        }
+    }
+
+
+    #endregion
+
 
     void Update()
     {
@@ -119,20 +138,6 @@ public class FirstPersonController : MonoBehaviour
             objectInterface.Interactive(key, transform);
         }
     }
-
-    /*void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
-        {
-            objectInterface.Interactive();
-            print("lol");
-        }
-    }*/
-
-
-
-    //ControllerColliderHit
-
 
 }
 
