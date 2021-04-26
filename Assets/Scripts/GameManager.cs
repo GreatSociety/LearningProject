@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            Debug.LogFormat("We are Instantiating LocalPlayer from {0}");
+            print("ye");
             // we're in a room. spawn a character for the local player. it gets synced by using PhotonNetwork.Instantiate
             DontDestroyOnLoad(PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 1.8f, 32f), Quaternion.identity, 0));
             DontDestroyOnLoad(this.gameObject);
