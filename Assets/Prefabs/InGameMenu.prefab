@@ -1745,7 +1745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8700375967179149564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2279604473939333032}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &3930141919006678579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,7 +3251,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7256718765349602398}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2279604473939333032}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9018446211592096250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3677,11 +3701,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7705bf5566e4904cb7dacf3b55ca871, type: 3}
---- !u!224 &1652398248285834488 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 143183815238295569, guid: b7705bf5566e4904cb7dacf3b55ca871, type: 3}
-  m_PrefabInstance: {fileID: 1662619465878285545}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1652398248285834491 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 143183815238295570, guid: b7705bf5566e4904cb7dacf3b55ca871, type: 3}
@@ -3693,3 +3712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4576dc90e5fb30440b461b638829ba72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1652398248285834488 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 143183815238295569, guid: b7705bf5566e4904cb7dacf3b55ca871, type: 3}
+  m_PrefabInstance: {fileID: 1662619465878285545}
+  m_PrefabAsset: {fileID: 0}
