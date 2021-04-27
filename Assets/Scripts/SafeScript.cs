@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SafeScript : MonoBehaviour, ObjectInterface
 {
     public Canvas CanvasSafe;
+
     private int number1 = 1;
     private int number2 = 1;
     private int number3 = 1;
@@ -16,24 +17,25 @@ public class SafeScript : MonoBehaviour, ObjectInterface
     public Text TextNumber3;
     public Text TextNumber4;
 
-    public bool opened;
+    public bool Opened = false;
+
     public void Interactive(KeyCode key, Transform player)
     {
         if (key == KeyCode.E)
         {
+            if (!CanvasSafe.gameObject.activeSelf)
+            {
+                CanvasSafe.gameObject.SetActive(true);
+                return;
+            }
+                
+
             CanvasSafe.enabled = !CanvasSafe.enabled;
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = !Cursor.visible;
         }
-
     }
-
-    void Start()
-    {
-        CanvasSafe.enabled = false;
-        opened = false;
-    }
-    
 
     public void IncreaseNumber(int number)
     {
@@ -82,9 +84,9 @@ public class SafeScript : MonoBehaviour, ObjectInterface
     {
         if (number1 == 3 && number2 == 7 && number3 == 2 && number4 == 5) 
         {
-            opened = true;
+            Opened = true;
         }
-        if (opened == true) 
+        if (Opened == true) 
         {
             UnlockSafe();
         }
@@ -92,6 +94,6 @@ public class SafeScript : MonoBehaviour, ObjectInterface
 
     void UnlockSafe() 
     {
-    
+        GetComponent<Animator>().SetBool("SafeCode", true);
     }
 }
