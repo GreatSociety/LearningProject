@@ -17,7 +17,7 @@ public class SafeScript : MonoBehaviour, ObjectInterface
     public Text TextNumber3;
     public Text TextNumber4;
 
-    public bool Opened = false;
+    public static bool Opened = false;
 
     public void Interactive(KeyCode key, Transform player)
     {

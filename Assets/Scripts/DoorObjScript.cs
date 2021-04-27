@@ -7,7 +7,7 @@ public class DoorObjScript : MonoBehaviour, ObjectInterface
     [SerializeField] public Animator doorAnim;
 
     // public cause we need in Game Manage Conroll this var/ We should write method to conrol animation with this var;
-    public bool IsLocked = true;
+    public static bool IsOpen = false;
     private string doorState = "Locked";
 
     private string doorControl = "Open";
@@ -34,11 +34,20 @@ public class DoorObjScript : MonoBehaviour, ObjectInterface
         doorAnim.SetBool(tryParam, true);
     }
 
+
+
     public void Interactive(KeyCode key, Transform player)
     {
         if (key == KeyCode.E)
-        {   
+        {
+            TryUnlock();
             OpenDoor();
         }
+    }
+
+    void TryUnlock()
+    {
+        if (IsOpen)
+            doorAnim.SetBool(doorState, false);
     }
 }
