@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.109020345, g: 0.11194075, b: 0.10350742, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.109020434, g: 0.11194079, b: 0.10350739, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102517507876154033, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1102517507876154043, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_RootOrder
@@ -472,35 +472,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3731851032309187583, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731851032309187583, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731851032309187583, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 202
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731851032309187583, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778266635836681219, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778266635836681219, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778266635836681219, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 62
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778266635836681219, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4777790555469875669, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
       propertyPath: sceneViewId
@@ -658,10 +658,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1323998591316409745, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4555789366356580265, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a8cef885c568eda4c90f1c882eb97f82, type: 2}
+    - target: {fileID: 4931525931405171101, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5243392083149438724, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
       propertyPath: hideSplintersInHierarchy
       value: 1
