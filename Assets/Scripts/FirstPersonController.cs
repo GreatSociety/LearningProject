@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonController : MonoBehaviourPunCallbacks
 {
     [SerializeField] Camera firstPersonCam;
 
@@ -119,20 +120,6 @@ public class FirstPersonController : MonoBehaviour
             objectInterface.Interactive(key, transform);
         }
     }
-
-    /*void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if(hit.transform.TryGetComponent(out ObjectInterface objectInterface) != false)
-        {
-            objectInterface.Interactive();
-            print("lol");
-        }
-    }*/
-
-
-
-    //ControllerColliderHit
-
 
 }
 
