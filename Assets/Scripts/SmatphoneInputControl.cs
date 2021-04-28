@@ -22,9 +22,8 @@ public class SmatphoneInputControl : MonoBehaviour
 
     public void Check(string text)
     {
-        if (text.Contains(Answer))
-        {
+        if (text.ToLower().Contains(Answer.ToLower()))
             IsAllowed = true;
-        }
+        
     }
 }
