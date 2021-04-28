@@ -1,11 +1,13 @@
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SafeScript : MonoBehaviour, ObjectInterface
+public class SafeScript : MonoBehaviour, ObjectInterface, ISave
 {
     public Canvas CanvasSafe;
+    SaveLoad Safe = new SaveLoad("Safe");
 
     private int number1 = 1;
     private int number2 = 1;
@@ -19,6 +21,13 @@ public class SafeScript : MonoBehaviour, ObjectInterface
 
     public static bool Opened = false;
 
+    public void Awake()
+    {
+        AppendToSaveble();
+        Load();
+    }
+
+
     public void Interactive(KeyCode key, Transform player)
     {
         if (key == KeyCode.E)
@@ -28,7 +37,7 @@ public class SafeScript : MonoBehaviour, ObjectInterface
                 CanvasSafe.gameObject.SetActive(true);
                 return;
             }
-                
+
 
             CanvasSafe.enabled = !CanvasSafe.enabled;
 
@@ -49,7 +58,7 @@ public class SafeScript : MonoBehaviour, ObjectInterface
                 TextNumber1.text = number1.ToString();
             }
         }
-        else if (number == 2) 
+        else if (number == 2)
         {
             number2++;
             TextNumber2.text = number2.ToString();
@@ -80,20 +89,38 @@ public class SafeScript : MonoBehaviour, ObjectInterface
             }
         }
     }
-    void Update() 
+    void Update()
     {
-        if (number1 == 3 && number2 == 7 && number3 == 2 && number4 == 5) 
+        if (number1 == 3 && number2 == 7 && number3 == 2 && number4 == 5)
         {
             Opened = true;
         }
-        if (Opened == true) 
+        if (Opened == true)
         {
             UnlockSafe();
         }
     }
 
-    void UnlockSafe() 
+    void UnlockSafe()
     {
         GetComponent<Animator>().SetBool("SafeCode", true);
+    }
+
+    public void Load()
+    {
+        if (Safe.Load() == null)
+            return;
+
+        gameObject.transform.position = Safe.Load().transform;
+        Opened = Safe.Load().flag;
+    }
+
+    public void Save()
+    {
+        Safe.Save(new Temp(gameObject.transform.position, Opened));
+    }
+    public void AppendToSaveble()
+    {
+        SaveManager.SavableList.Add(this);
     }
 }

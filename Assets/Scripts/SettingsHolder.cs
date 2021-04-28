@@ -1,16 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Text;
 using System.IO;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
 using UnityEngine.Localization.Settings;
 
-public class SettingsHolder : MonoBehaviour, ISave
+public class SettingsHolder : MonoBehaviour
 {
 
     [SerializeField] Scrollbar audioListerSet;
@@ -25,7 +22,6 @@ public class SettingsHolder : MonoBehaviour, ISave
     public static event Action<float> ChangeS;
 
     public static event Action ToSet;
-
 
     void Awake()
     {

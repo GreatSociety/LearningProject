@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json.Linq;
 
-public interface ISave 
+public interface ISave
 {
-    
     void Save();
+    void Load();
+    void AppendToSaveble();
+
 }
 
-public interface ILoad
+public class Temp
 {
-    void Load();
+    public Vector3 transform { get; set; }
+    public bool flag { get; set; }
+
+    public Temp(Vector3 transform, bool flag = false)
+    {
+        this.transform = transform;
+        this.flag = flag;
+    }
 }

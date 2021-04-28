@@ -6,14 +6,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Bson;
 using UnityEngine.Localization.Settings;
+using System.Collections.Generic;
 
 public class SaveManager : MonoBehaviour
 {
-    string jsonSetting;
-    string gameData;
 
+    public static List<ISave> SavableList = new List<ISave>();
     public static event Action<JObject> SettingLoad;
     public static JObject Data = new JObject();
+
+    string jsonSetting;
+    static string gameData;
+    bool loadMode;
 
     private void Awake()
     {
@@ -23,8 +27,6 @@ public class SaveManager : MonoBehaviour
         gameData = Path.Combine(Application.persistentDataPath, "Data.bin");
 
         SettingsHolder.ToSet += LoadSetting;
-
-        Data.Add(new JProperty("this", "sasi"));
     }
 
     IEnumerator Start()
@@ -33,8 +35,7 @@ public class SaveManager : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
 
         LoadSetting();
-        SaveData();
-        LoadData();
+        //LoadData();
     }
 
     public void LoadSetting()
@@ -57,9 +58,7 @@ public class SaveManager : MonoBehaviour
             {
                 var serializator = new JsonSerializer();
 
-                Data = (serializator.Deserialize<JObject>(reader));
-
-                print(Data);
+                Data = serializator.Deserialize<JObject>(reader);
             }
         }
 
@@ -67,12 +66,23 @@ public class SaveManager : MonoBehaviour
 
     public void SaveData()
     {
-        MemoryStream ms = new MemoryStream();
-        using (BsonWriter writer = new BsonWriter(ms))
+        foreach (ISave x in SavableList)
+            x.Save();
+
+        using (var fs = File.Open(gameData, FileMode.OpenOrCreate))
         {
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Serialize(writer, Data);
+            using (BsonWriter writer = new BsonWriter(fs))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(writer, Data);
+            }
         }
+
     }
+
+    public void ResetData()
+        =>File.Delete(gameData);
+    
+
 
 }

@@ -1,12 +1,14 @@
+using Newtonsoft.Json;
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviourPunCallbacks
+public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
 {
     [SerializeField] Camera firstPersonCam;
+    readonly SaveLoad Player = new SaveLoad("Player");
 
     private CharacterController playerConroller;
 
@@ -40,6 +42,9 @@ public class FirstPersonController : MonoBehaviourPunCallbacks
 
         InputManager.KeyDown += PlayerInterface;
 
+        AppendToSaveble();
+        Load();
+
     }
 
     void Update()
@@ -51,7 +56,6 @@ public class FirstPersonController : MonoBehaviourPunCallbacks
         //Keyboard imput
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-
     }
 
     private void FixedUpdate()
@@ -119,6 +123,22 @@ public class FirstPersonController : MonoBehaviourPunCallbacks
         {
             objectInterface.Interactive(key, transform);
         }
+    }
+
+    public void Load()
+    {
+        if(Player.Load() != null)
+            gameObject.transform.position = Player.Load().transform;
+    }
+
+    public void Save()
+    {
+        Player.Save(new Temp(gameObject.transform.position));
+    }
+
+    public void AppendToSaveble()
+    {
+        SaveManager.SavableList.Add(this);
     }
 
 }
