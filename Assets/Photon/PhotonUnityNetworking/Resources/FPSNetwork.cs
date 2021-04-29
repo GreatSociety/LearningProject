@@ -41,8 +41,8 @@ public class FPSNetwork : MonoBehaviourPunCallbacks
 
         InputNetwork.KeyDown += PlayerInterface;
 
-       /* if (!photonView.IsMine)
-            NotMine();*/
+        if (!photonView.IsMine)
+            NotMine();
 
     }
 
