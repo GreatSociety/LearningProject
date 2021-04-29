@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            if (PhotonNetwork.IsConnected)
+            if (PhotonNetwork.IsConnectedAndReady)
                 PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(22f, 1.8f, 32f), Quaternion.identity, 0);
             else
                 Instantiate(this.playerPrefabSingle, new Vector3(22f, 1.8f, 32f), Quaternion.identity);
@@ -48,7 +48,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
-        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.IsConnectedAndReady) PhotonNetwork.LeaveRoom();
+        else SceneManager.LoadScene("Menu");
     }
 
 }
