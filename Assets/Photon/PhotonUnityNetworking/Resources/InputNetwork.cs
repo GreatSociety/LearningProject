@@ -15,7 +15,7 @@ public class InputNetwork : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-       // if (photonView.IsMine)
+       if (photonView.IsMine)
             InputRead(enabledMode);
     }
 
@@ -42,7 +42,7 @@ public class InputNetwork : MonoBehaviourPunCallbacks
 
     public void InputModeChange()
     {
-        //if (photonView.IsMine)
+        if (photonView.IsMine)
             enabledMode = !enabledMode;
     }
 }

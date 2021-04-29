@@ -18,7 +18,7 @@ public class PlayerNetwork : MonoBehaviourPunCallbacks
         else
         {
             //Destroy(gameObject.GetComponent<FPSNetwork>());
-            Destroy(gameObject.GetComponent<InputNetwork>());
+            //Destroy(gameObject.GetComponent<InputNetwork>());
             Destroy(gameObject.GetComponent<AudioListener>());
             Destroy(gameObject.GetComponentInChildren<Camera>());
 
