@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.109020345, g: 0.11194075, b: 0.10350742, a: 0.1}
+  m_IndirectSpecularColor: {r: 0.109020434, g: 0.11194079, b: 0.10350739, a: 0.1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1102517507876154033, guid: 9a566e8a8c362c746ae8a224d835a40c, type: 3}
+  playerPrefabSingle: {fileID: 1102517507876154033, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
 --- !u!4 &613538555
 Transform:
   m_ObjectHideFlags: 0
@@ -1178,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a8cef885c568eda4c90f1c882eb97f82, type: 2}
+    - target: {fileID: 4863740588489465095, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4931525931405171101, guid: d8820ecf945ba654c9b99f013edf5459, type: 3}
       propertyPath: sceneViewId
       value: 4
@@ -1349,6 +1354,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4604860432675391727, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 723881448372061330, guid: 8cbc40640aafbad458c9b65f0d416e83, type: 3}
       propertyPath: m_Camera
       value: 
