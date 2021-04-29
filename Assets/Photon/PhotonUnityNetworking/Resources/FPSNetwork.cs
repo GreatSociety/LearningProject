@@ -29,20 +29,18 @@ public class FPSNetwork : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        if (photonView.IsMine)
-        {
-            playerConroller = GetComponent<CharacterController>();
+        playerConroller = GetComponent<CharacterController>();
 
-            CharRot = playerConroller.transform.localRotation;
-            CamRot = firstPersonCam.transform.localRotation;
-
-            HightCheck();
-        }
+        CharRot = playerConroller.transform.localRotation;
+        CamRot = firstPersonCam.transform.localRotation;
+        HightCheck();
+       
 
         InputNetwork.KeyDown += PlayerInterface;
 
         if (!photonView.IsMine)
-            NotMine();
+            print("yes it is");
+        //NotMine();
 
     }
 
@@ -50,9 +48,7 @@ public class FPSNetwork : MonoBehaviourPunCallbacks
     {
         Destroy(firstPersonCam);
         Destroy(GetComponent<AudioListener>());
-        Destroy(GetComponent<InputNetwork>());
-
-        print("yes it is");
+        
     }
 
     void Update()
