@@ -8,20 +8,7 @@ public class LocalManager : MonoBehaviour
 
     private void Awake()
     {
-
-        if (LocalManager.instance == null)
-        {
-            DontDestroyOnLoad(this);
-            LocalManager.instance = this;
-
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-
         SaveManager.SettingLoad += Set;
-
     }
 
     void ChangeLang(int index)
