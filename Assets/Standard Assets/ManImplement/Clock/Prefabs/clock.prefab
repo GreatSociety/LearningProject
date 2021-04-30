@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
-  - component: {fileID: 11400000}
+  - component: {fileID: 7082394521001675193}
   m_Layer: 0
   m_Name: clock
   m_TagString: Untagged
@@ -167,7 +167,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &11400000
+--- !u!114 &7082394521001675193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,12 +176,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0db685f114bbf4e837ee81aae56661, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bee2d68dc35be247a4ebfd445255394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 0
-  hour: 0
-  clockSpeed: 12
   pointerMinutes: {fileID: 100012}
   pointerHours: {fileID: 100008}
 --- !u!1 &100004

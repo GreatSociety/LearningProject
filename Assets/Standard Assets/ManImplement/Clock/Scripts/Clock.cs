@@ -1,20 +1,10 @@
 using UnityEngine;
-using System.Collections;
 using System;
 using System.Text;
 
 public class Clock : MonoBehaviour {
     //-----------------------------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------------------------
-    //
-    //  Simple Clock Script / Andre "AEG" Bürger / VIS-Games 2012
-    //
-    //-----------------------------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------------------------------
-
-    //-- set start time 00:00
+    
     public int minutes = 0;
     public int hour = 0;
     public int seconds;
@@ -23,6 +13,7 @@ public class Clock : MonoBehaviour {
 
     public static event Action<StringBuilder> TextTime;
     public static event Action<int> LightTime;
+    public static event Action<int, int> ClockPointers;
 
     //-- time speed factor
     public float clockSpeed = 12.0f;     // 1.0f = realtime, < 1.0f = slower, > 1.0f = faster
@@ -33,8 +24,6 @@ public class Clock : MonoBehaviour {
 
     [HideInInspector] public StringBuilder ToPhone;
 
-    [SerializeField] GameObject pointerMinutes;
-    [SerializeField] GameObject pointerHours;
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------------
@@ -48,6 +37,7 @@ void Start()
 
     ToPhone = new StringBuilder($"{hour}:{minutes}", 7);
     LightTime?.Invoke(hour);
+    ClockPointers?.Invoke(hour, minutes);
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------------
@@ -66,7 +56,9 @@ void Update()
         if(seconds >= 60)
         {
             seconds = 0;
+            ClockPointers?.Invoke(hour, minutes);
             minutes++;
+
             if(minutes > 60)
             {
                 minutes = 0;
@@ -81,17 +73,6 @@ void Update()
 
     if (temp != minutes)
         PhoneTime();
-
-    //-- calculate pointer angles
-    //float rotationSeconds = (360.0f / 60.0f)  * seconds;
-    float rotationMinutes = (360.0f / 60.0f)  * minutes;
-    float rotationHours   = ((360.0f / 12.0f) * hour) + ((360.0f / (60.0f * 12.0f)) * minutes);
-
-    //-- draw pointers
-    //pointerSeconds.transform.localEulerAngles = new Vector3(0.0f, 0.0f, rotationSeconds);
-    pointerMinutes.transform.localEulerAngles = new Vector3(0.0f, 0.0f, rotationMinutes);
-    pointerHours.transform.localEulerAngles   = new Vector3(0.0f, 0.0f, rotationHours);
-
 }
 
 
@@ -99,12 +80,7 @@ void PhoneTime()
 {
         ToPhone.Clear();
         ToPhone.Append(minutes > 9 ? $"{hour}:{minutes}" : $"{hour}:0{minutes}");
-
         TextTime?.Invoke(ToPhone);
 }
-
-//-----------------------------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------------------------
 }
 

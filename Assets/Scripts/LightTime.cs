@@ -30,7 +30,7 @@ public class LightTime : MonoBehaviour
             rTime = hour - dayBorderMax;
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
         }
-        else if(hour < dayBorderMin)
+        else if (hour < dayBorderMin)
         {
             rTime = 24 - (dayBorderMax - hour);
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
@@ -59,4 +59,9 @@ public class LightTime : MonoBehaviour
         => Sun.cullingMask &= ~(1 << LayerMask.NameToLayer("Default"));
     void ShowMask()
         => Sun.cullingMask |= 1 << LayerMask.NameToLayer("Default");
+
+    private void OnDestroy()
+    {
+        Clock.LightTime -= XRotate;
+    }
 }

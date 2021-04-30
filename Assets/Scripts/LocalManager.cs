@@ -4,10 +4,22 @@ using Newtonsoft.Json.Linq;
 
 public class LocalManager : MonoBehaviour
 {
+    static LocalManager instance;
+
     private void Awake()
     {
 
-        //DontDestroyOnLoad(gameObject);
+        if (LocalManager.instance == null)
+        {
+            DontDestroyOnLoad(this);
+            LocalManager.instance = this;
+
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
         SaveManager.SettingLoad += Set;
 
     }
