@@ -8,7 +8,7 @@ public class SmatphoneInputControl : MonoBehaviour
 {
     public static bool IsAllowed = false;
 
-    public string PreInput = "2002:";
+    public string PreInput = "3725: ";
 
     public string Answer = "room";
 

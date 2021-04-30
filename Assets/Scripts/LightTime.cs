@@ -29,19 +29,16 @@ public class LightTime : MonoBehaviour
         {
             rTime = hour - dayBorderMax;
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
-            print(rTime);
         }
         else if(hour < dayBorderMin)
         {
             rTime = 24 - (dayBorderMax - hour);
             gameObject.transform.rotation = Quaternion.Euler(180 + rTime * nightRotStep, horizontalPosition, 0);
-            print(rTime);
         }
         else
         {
             rTime = hour - dayBorderMin;
             gameObject.transform.rotation = Quaternion.Euler(rTime * dayRotStep, horizontalPosition, 0);
-            print(rTime);
         }
 
         MaskChanger(hour);

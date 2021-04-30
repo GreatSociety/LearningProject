@@ -7,6 +7,8 @@ public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
     Transform Player;
     [SerializeField] SmartphoneButtonController PanelController;
 
+    [SerializeField]Canvas screen;
+
     public bool onHand = false;
 
     private Vector3 startPos;
@@ -17,6 +19,7 @@ public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
 
     private void Start()
     {
+
         startPos = transform.position;
         startRot = transform.rotation;
     }
@@ -46,6 +49,7 @@ public class SmartphoneObjScript : MonoBehaviour, ObjectInterface
 
     public void Interactive(KeyCode key, Transform player)
     {
+        screen.worldCamera = player.gameObject.GetComponentInChildren<Camera>();
 
         Player = player;
 

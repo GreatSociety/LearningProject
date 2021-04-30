@@ -1,17 +1,15 @@
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using Newtonsoft.Json.Linq;
-using System.Collections;
-
 
 public class LocalManager : MonoBehaviour
 {
     private void Awake()
     {
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         SaveManager.SettingLoad += Set;
-        
+
     }
 
     void ChangeLang(int index)

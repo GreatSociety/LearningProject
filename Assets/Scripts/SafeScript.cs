@@ -123,4 +123,14 @@ public class SafeScript : MonoBehaviour, ObjectInterface, ISave
     {
         SaveManager.SavableList.Add(this);
     }
+
+    public void DeleteOnDestroy()
+    {
+        SaveManager.SavableList.Remove(this);
+    }
+
+    void OnDestroy()
+    {
+        DeleteOnDestroy();
+    }
 }

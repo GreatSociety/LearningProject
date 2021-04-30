@@ -1,15 +1,11 @@
-using Newtonsoft.Json;
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-[RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
+public class FPSNetwork : MonoBehaviourPunCallbacks
 {
     [SerializeField] Camera firstPersonCam;
-    readonly SaveLoad Player = new SaveLoad("Player");
-
     private CharacterController playerConroller;
 
     private float HorizontalSpeed = 1.5F;
@@ -37,38 +33,43 @@ public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
 
         CharRot = playerConroller.transform.localRotation;
         CamRot = firstPersonCam.transform.localRotation;
-
         HightCheck();
+       
 
-        InputManager.KeyDown += PlayerInterface;
+        InputNetwork.KeyDown += PlayerInterface;
 
-        AppendToSaveble();
-        Load();
+        if (!photonView.IsMine)
+            print("yes it is");
+        //NotMine();
 
+    }
+
+    private void NotMine()
+    {
+        Destroy(firstPersonCam);
+        Destroy(GetComponent<AudioListener>());
+        
     }
 
     void Update()
     {
-        // Mouse imput
-        mouseX = Input.GetAxis("Mouse Y") * HorizontalSpeed;
-        mouseY = Input.GetAxis("Mouse X") * VerticalSpeed;
+        if (photonView.IsMine)
+        {
+            // Mouse imput
+            mouseX = Input.GetAxis("Mouse Y") * HorizontalSpeed;
+            mouseY = Input.GetAxis("Mouse X") * VerticalSpeed;
 
-        //Keyboard imput
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+            //Keyboard imput
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
 
-        //Processing
-        MouseInputMove(mouseX, mouseY);
-        KeyboardInputMove(horizontal, vertical);
+            MouseInputMove(mouseX, mouseY);
+            KeyboardInputMove(horizontal, vertical);
 
-        HightCheck();
+            HightCheck();
+        }
     }
 
-    private void OnDestroy()
-    {
-        InputManager.KeyDown -= PlayerInterface;
-        DeleteOnDestroy();
-    }
 
     void MouseInputMove(float x, float y)
     {
@@ -127,28 +128,4 @@ public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
             objectInterface.Interactive(key, transform);
         }
     }
-
-    public void Load()
-    {
-        if (Player.Load() != null)
-            gameObject.transform.position = Player.Load().transform;
-    }
-
-    public void Save()
-    {
-        Player.Save(new Temp(gameObject.transform.position));
-    }
-
-    public void AppendToSaveble()
-    {
-        SaveManager.SavableList.Add(this);
-    }
-
-    public void DeleteOnDestroy()
-    {
-        SaveManager.SavableList.Remove(this);
-    }
 }
-
-
-

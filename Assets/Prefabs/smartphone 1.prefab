@@ -896,7 +896,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6016379989798145506, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: InputModeChange
         m_Mode: 1
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6016379989798145506, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: InputModeChange
         m_Mode: 1
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7633ad9afc6ce43bb536b249d6e2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PreInput: '2002:'
+  PreInput: '3725:'
   Answer: room
   InputField: {fileID: 3593804401652035479}
 --- !u!1 &3864911171742100063
@@ -1253,6 +1253,8 @@ GameObject:
   - component: {fileID: 847028817111307851}
   - component: {fileID: 7739036879318401166}
   - component: {fileID: 121981889995095921}
+  - component: {fileID: -4604860432675391727}
+  - component: {fileID: 4115230949325649515}
   m_Layer: 0
   m_Name: smartphone 1
   m_TagString: Untagged
@@ -1352,6 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelController: {fileID: 1527569844241384289}
+  screen: {fileID: 723881448372061330}
   onHand: 0
 --- !u!65 &7739036879318401166
 BoxCollider:
@@ -1379,6 +1382,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimePlace: {fileID: 1949499584356772428}
+--- !u!114 &-4604860432675391727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812785569008078899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 4115230949325649515}
+  sceneViewId: 5
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &4115230949325649515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812785569008078899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &7151560103390406981
 GameObject:
   m_ObjectHideFlags: 0

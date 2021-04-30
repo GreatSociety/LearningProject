@@ -11,10 +11,10 @@ public class GameLogic : MonoBehaviour
     }
     void Logic()
     {
-        if (SmatphoneInputControl.IsAllowed)
+        if (SmatphoneInputControl.IsAllowed && !SafeSystemScript.isSafeVisible)
             SafeSystemScript.isSafeVisible = true;
 
-        if (SafeScript.Opened)
+        if (SafeScript.Opened && !DoorObjScript.IsOpen)
             DoorObjScript.IsOpen = true;
     }
 }

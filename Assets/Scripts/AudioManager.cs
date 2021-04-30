@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 public class AudioManager : MonoBehaviour
 {
     /// <summary>
-    /// hangover engineering, sorry
+    /// This script need to rewriting, but i have no time for it now 
     /// </summary>
     float audioListerVolume = 1f;
     float audioBackVolume = 1f;
@@ -27,11 +27,6 @@ public class AudioManager : MonoBehaviour
         SettingsHolder.ChangeB += SetBackVolume;
         SettingsHolder.ChangeS += SetSoundVolume;
 
-    }
-
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SetListnerVolume(float volume)

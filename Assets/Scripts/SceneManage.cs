@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
 {
-    
-    public void SceneLoad() 
+    public void SceneLoad()
     {
         SceneManager.LoadScene("GameRoom");
     }
+
+    
 }
