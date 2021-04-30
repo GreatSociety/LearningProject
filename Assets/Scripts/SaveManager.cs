@@ -15,13 +15,22 @@ public class SaveManager : MonoBehaviour
     public static event Action<JObject> SettingLoad;
     public static JObject Data = new JObject();
 
+    static SaveManager instance;
     string jsonSetting;
     static string gameData;
-    bool loadMode;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (SaveManager.instance == null)
+        {
+            DontDestroyOnLoad(this);
+            SaveManager.instance = this;
+
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
 
         jsonSetting = Path.Combine(Application.persistentDataPath, "Settings.json");
         gameData = Path.Combine(Application.persistentDataPath, "Data.bin");
@@ -35,7 +44,6 @@ public class SaveManager : MonoBehaviour
         yield return LocalizationSettings.InitializationOperation;
 
         LoadSetting();
-        //LoadData();
     }
 
     public void LoadSetting()
@@ -59,6 +67,7 @@ public class SaveManager : MonoBehaviour
                 var serializator = new JsonSerializer();
 
                 Data = serializator.Deserialize<JObject>(reader);
+                print(Data);
             }
         }
 
@@ -81,8 +90,15 @@ public class SaveManager : MonoBehaviour
     }
 
     public void ResetData()
-        =>File.Delete(gameData);
-    
+    {
+        print(gameData);
+        File.Delete(gameData);
+        NewGameData();
+        print(Data);
+    }
+  
 
+    public void NewGameData()
+        => Data = new JObject();
 
 }

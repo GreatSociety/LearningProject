@@ -14,4 +14,5 @@ public class SafeSystemScript : MonoBehaviour
             GetComponent<Animator>().SetBool("ActiveMove", true);
         }
     }
+
 }
