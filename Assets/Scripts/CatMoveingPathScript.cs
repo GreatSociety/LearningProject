@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class CatMoveingPathScript : MonoBehaviour
 {
-    public CatScript MyPath;
-    public float speed = 1.0f;
-    public float MaxDistance = 0.1f;
+    public CatPatScript MyPath;
+    private float speed = 1.0f;
+    private float MaxDistance = 0.1f;
     private IEnumerator<Transform> pointInPath;
    
     void Start()
     {
-        pointInPath = MyPath.GetNextPathPoint();
-        pointInPath.MoveNext();
-        if (pointInPath.Current == null)
-        {
-            return;
-        }
-        transform.position = pointInPath.Current.position;
+        
+        
+
+            if (MyPath == null)
+            {
+                return;
+            }
+            pointInPath = MyPath.GetNextPathPoint();
+
+            pointInPath.MoveNext();
+
+            if (pointInPath.Current == null)
+            {
+
+                return;
+            }
+            transform.localPosition = pointInPath.Current.localPosition;
+        
     }
 
 
@@ -25,19 +36,28 @@ public class CatMoveingPathScript : MonoBehaviour
     {
         if (SmatphoneInputControl.IsAllowed)
         {
-
-            if (pointInPath == null || pointInPath.Current == null)
-            {
-                return;
-            }
-            transform.Rotate(0,0,90);
-            transform.position = Vector3.MoveTowards(transform.position, pointInPath.Current.position, Time.deltaTime * speed);
-
-            var distanceSquare = (transform.position - pointInPath.Current.position).sqrMagnitude;
-            if (distanceSquare < MaxDistance * MaxDistance)
-            {
-                pointInPath.MoveNext();
-            }
+            Moveing();
+           
         }
     }
+    void Moveing()
+    {
+        GetComponent<Animator>().SetBool("start walking", true);
+        
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, pointInPath.Current.localPosition, Time.deltaTime * speed);
+        var distanceSquare = (transform.localPosition - pointInPath.Current.localPosition).sqrMagnitude;
+        if (distanceSquare < MaxDistance * MaxDistance)
+        {
+            transform.Rotate(0, 90, 0);
+            pointInPath.MoveNext();
+        }
+
+        if (pointInPath == null || pointInPath.Current == null)
+        {
+            GetComponent<Animator>().SetBool("stop", true);
+            return;
+
+        }
+    }
+    
 }
