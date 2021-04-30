@@ -896,7 +896,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6016379989798145506, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: InputModeChange
         m_Mode: 1
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6016379989798145506, guid: 60fedc064ce7b794880a0bbb0ed970bf, type: 3}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: InputModeChange
         m_Mode: 1
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7633ad9afc6ce43bb536b249d6e2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PreInput: '2002:'
+  PreInput: '3725:'
   Answer: room
   InputField: {fileID: 3593804401652035479}
 --- !u!1 &3864911171742100063
@@ -1354,6 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelController: {fileID: 1527569844241384289}
+  screen: {fileID: 723881448372061330}
   onHand: 0
 --- !u!65 &7739036879318401166
 BoxCollider:
@@ -1401,7 +1402,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4115230949325649515}
-  sceneViewId: 0
+  sceneViewId: 5
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &4115230949325649515

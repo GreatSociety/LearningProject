@@ -9,6 +9,8 @@ public interface ISave
     void Load();
     void AppendToSaveble();
 
+    void DeleteOnDestroy();
+
 }
 
 public class Temp

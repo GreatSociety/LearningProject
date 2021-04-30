@@ -10,7 +10,7 @@ public class SmartphoneButtonController : MonoBehaviour
     [SerializeField] public GameObject WorkPanel;
     [SerializeField] public GameObject EditorPanel;
 
-    private void Start()
+    private void Awake()
     {
         ButtonDoubleClick.ToEditor += ToEditorPanel;
     }
@@ -18,7 +18,7 @@ public class SmartphoneButtonController : MonoBehaviour
     public void Unlock()
     {
         WorkPanel.SetActive(true);
-    } 
+    }
 
     public void ToWorkPanel()
     {
@@ -28,5 +28,10 @@ public class SmartphoneButtonController : MonoBehaviour
     private void ToEditorPanel()
     {
         EditorPanel.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        ButtonDoubleClick.ToEditor -= ToEditorPanel;
     }
 }

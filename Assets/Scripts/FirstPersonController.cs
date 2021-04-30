@@ -56,15 +56,18 @@ public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
         //Keyboard imput
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-    }
 
-    private void FixedUpdate()
-    {
+        //Processing
         MouseInputMove(mouseX, mouseY);
         KeyboardInputMove(horizontal, vertical);
 
         HightCheck();
+    }
 
+    private void OnDestroy()
+    {
+        InputManager.KeyDown -= PlayerInterface;
+        DeleteOnDestroy();
     }
 
     void MouseInputMove(float x, float y)
@@ -127,7 +130,7 @@ public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
 
     public void Load()
     {
-        if(Player.Load() != null)
+        if (Player.Load() != null)
             gameObject.transform.position = Player.Load().transform;
     }
 
@@ -141,6 +144,10 @@ public class FirstPersonController : MonoBehaviourPunCallbacks, ISave
         SaveManager.SavableList.Add(this);
     }
 
+    public void DeleteOnDestroy()
+    {
+        SaveManager.SavableList.Remove(this);
+    }
 }
 
 

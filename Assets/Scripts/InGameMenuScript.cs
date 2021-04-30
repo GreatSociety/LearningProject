@@ -19,6 +19,11 @@ public class InGameMenuScript : MonoBehaviour
         InputManager.KeyDown += MenuCall;
     }
 
+    void OnDestroy()
+    {
+        InputManager.KeyDown -= MenuCall;
+    }
+
     IEnumerator QuickStartPromt()
     {
 
